@@ -1,5 +1,5 @@
 <?php
 	require "controladores/plantilla.controlador.php";
 
-	$plantilla = new ControladorPlantilla();
+	$plantilla = new PlantillaControlador();
 	$plantilla->ctrPlantilla();
