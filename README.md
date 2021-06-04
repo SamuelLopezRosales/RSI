@@ -1,0 +1,2 @@
+# RSI
+Ejercicio practico 
