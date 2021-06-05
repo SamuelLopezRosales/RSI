@@ -56,9 +56,20 @@
     ============================================================*/
     include "vistas/modulos/menu.php";
     /*==========================================================
-    CONTENIDO TEMPORAL
+    LOGICA PARA REDIRECCIÓN DE RUTAS
     ============================================================*/
-    include "vistas/modulos/contenido.php";
+    if(isset($_GET["ruta"])){
+      if($_GET["ruta"] == "categorias" ||
+        $_GET["ruta"] == "inicio" ||
+        $_GET["ruta"] == "activos"
+        ){
+        include "vistas/modulos/".$_GET["ruta"].".php";
+      }else{
+        include "vistas/modulos/404.php";
+      }
+    }else{
+      include "vistas/modulos/inicio.php";
+    }
      /*==========================================================
     FOOTER
     ============================================================*/
