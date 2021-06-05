@@ -1,7 +1,7 @@
 <?php
 class Conexion{
 	public function conectar(){
-		$link = new PDO("mysql:host=localhost;dbname=RSI",
+		$link = new PDO("mysql:host=localhost;dbname=rsi",
 				"root",
 				"");
 		$link->exec("set names utf8");
