@@ -32,16 +32,27 @@
           $item = null;
           $valor = null;
           $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-          foreach ($categorias as $key => $value) {
+       foreach ($categorias as $key => $value) {
+
             echo ' <tr>
+
                     <td>'.($key+1).'</td>
+
                     <td class="text-uppercase">'.$value["categoria"].'</td>
+
                     <td>
+
                       <div class="btn-group">
-                        <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["idCategoria"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
-                        <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["idCategoria"].'"><i class="fa fa-times"></i></button>
-                    </div>
+
+                        <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["idCategoria"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>';
+
+
+
+
+                      echo '</div>
+
                     </td>
+
                   </tr>';
           }
 
