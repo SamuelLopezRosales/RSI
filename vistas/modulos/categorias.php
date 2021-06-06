@@ -158,9 +158,6 @@ MODAL EDITAR CATEGORÍA
     </div>
   </div>
 </div>
-<?php
-  $borrarCategoria = new ControladorCategorias();
-  $borrarCategoria -> ctrBorrarCategoria();
-?>
+
 
 
