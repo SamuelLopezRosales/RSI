@@ -21,6 +21,13 @@
 					<span>Activos Fijos</span>
 				</a>
 			</li>
+
+			<li>
+				<a href="activosfijos">
+					<i class="fa fa-th"></i>
+					<span>Activos Fijos 2</span>
+				</a>
+			</li>
 		</ul>
 	</section>
 </aside>

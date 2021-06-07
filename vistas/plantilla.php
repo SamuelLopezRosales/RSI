@@ -25,6 +25,10 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+    <!-- DataTables -->
+  <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+
   <!--===================================================================
     PLUGINGS DE JAVASCRIPT
     ===================================================================-->
@@ -46,6 +50,12 @@
   <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
+   <!-- DataTables -->
+  <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
+  <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -66,6 +76,7 @@
     if(isset($_GET["ruta"])){
       if($_GET["ruta"] == "categorias" ||
         $_GET["ruta"] == "inicio" ||
+        $_GET["ruta"] == "activosfijos" ||
         $_GET["ruta"] == "activos"
         ){
         include "vistas/modulos/".$_GET["ruta"].".php";
@@ -89,5 +100,6 @@
 
 <script src="vistas/js/plantilla.js"></script>
 <script src="vistas/js/categorias.js"></script>
+<script src="vistas/js/activos.js"></script>
 
 </html>
