@@ -8,7 +8,7 @@ class AjaxCategorias{
 	=============================================*/
 	public $idCategoria;
 	public function ajaxEditarCategoria(){
-		$item = "id";
+		$item = "idCategoria";
 		$valor = $this->idCategoria;
 		$respuesta = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 		echo json_encode($respuesta);

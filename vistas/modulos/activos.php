@@ -118,7 +118,7 @@ MODAL AGREGAR USUARIO
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <input type="number" class="form-control input-lg" name="nuevoValAdqui" placeholder="Ingresar valor de adquisición" required>
+                <input type="number" class="form-control input-lg" name="nuevoValAdqui" placeholder="Ingresar valor de adquisición" step="any" required>
               </div>
             </div>
 
@@ -132,8 +132,8 @@ MODAL AGREGAR USUARIO
           <button type="submit" class="btn btn-primary">Guardar Activo</button>
         </div>
         <?php
-         // $crearUsuario = new ControladorUsuarios();
-          //$crearUsuario -> ctrCrearUsuario();
+         $crearActivo = new ControladorActivos();
+          $crearActivo -> ctrCrearActivo();
         ?>
       </form>
     </div>
@@ -141,145 +141,89 @@ MODAL AGREGAR USUARIO
 </div>
 
 <!--=====================================
-MODAL EDITAR USUARIO
+MODAL EDITAR ACTIVO
 ======================================-->
-<div id="modalEditarUsuario" class="modal fade" role="dialog">
+
+<div id="modalEditarActivo" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form role="form" method="post" enctype="multipart/form-data">
+      <form role="form" method="post">
         <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
-
         <div class="modal-header" style="background:#3c8dbc; color:white">
-
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-          <h4 class="modal-title">Editar usuario</h4>
-
+          <h4 class="modal-title">Editar Activo</h4>
         </div>
-
         <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
-
         <div class="modal-body">
-
           <div class="box-body">
-
-            <!-- ENTRADA PARA EL NOMBRE -->
-
+          <!-- ENTRADA PARA SELECCIONAR CATEGORIA -->
             <div class="form-group">
-
               <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-
-                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL USUARIO -->
-
-             <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-key"></i></span>
-
-                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA LA CONTRASEÑA -->
-
-             <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-
-                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueva contraseña">
-
-                <input type="hidden" id="passwordActual" name="passwordActual">
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA SELECCIONAR SU PERFIL -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
-
-                <select class="form-control input-lg" name="editarPerfil">
-
-                  <option value="" id="editarPerfil"></option>
-
-                  <option value="Administrador">Administrador</option>
-
-                  <option value="Especial">Especial</option>
-
-                  <option value="Vendedor">Vendedor</option>
+                <select class="form-control input-lg" name="editarCategoria" readonly required>
+                  <option id="editarCategoria"></option>
 
                 </select>
-
               </div>
-
             </div>
 
-            <!-- ENTRADA PARA SUBIR FOTO -->
-
+             <!-- ENTRADA PARA EL codigo -->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo" required readonly>
+              </div>
+            </div>
+            <!-- ENTRADA PARA LA MARCA-->
              <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <input type="text" class="form-control input-lg" id="editarMarca" name="editarMarca" id="nuevaMarca" required>
+              </div>
+            </div>
 
-              <div class="panel">SUBIR FOTO</div>
-
-              <input type="file" class="nuevaFoto" name="editarFoto">
-
-              <p class="help-block">Peso máximo de la foto 2MB</p>
-
-              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
-
-              <input type="hidden" name="fotoActual" id="fotoActual">
-
+            <!-- ENTRADA PARA EL MODELO -->
+             <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input type="text" class="form-control input-lg" id="editarModelo" name="editarModelo" required>
+              </div>
+            </div>
+            <!-- ENTRADA PARA EL NÚMERO DE SERIE -->
+           <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input type="text" class="form-control input-lg" name="editarNumSerie" required id="editarNumSerie">
+              </div>
+            </div>
+            <!-- ENTRADA PARA VALOR ADQUISICIÓN -->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input type="number" class="form-control input-lg" id="editarValAdqui" name="editarValAdqui" step="any" required>
+              </div>
             </div>
 
           </div>
-
         </div>
-
         <!--=====================================
         PIE DEL MODAL
         ======================================-->
-
         <div class="modal-footer">
-
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-
-          <button type="submit" class="btn btn-primary">Modificar usuario</button>
-
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
         </div>
-
-     <?php
-
-         // $editarUsuario = new ControladorUsuarios();
-          //$editarUsuario -> ctrEditarUsuario();
-
+        <?php
+         $editarActivo = new ControladorActivos();
+         $editarActivo -> ctrEditarActivo();
         ?>
-
       </form>
-
     </div>
-
   </div>
-
 </div>
 
 <?php

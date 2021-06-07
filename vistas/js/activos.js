@@ -85,3 +85,50 @@ $("#nuevaCategoria").change(function(){
 		}
 	});*/
 });
+
+
+/*=====================================================
+Editar activo
+=====================================================*/
+$(".tablaActivos tbody").on("click","button.btnEditarActivo",function(){
+	var codigo = $(this).attr("codigo");
+	var datos = new FormData();
+	datos.append("codigo",codigo);
+
+	$.ajax({
+		url:"ajax/activos.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(respuesta){
+			console.log("respuesta",respuesta);
+
+			var datosCategoria = new FormData();
+			datosCategoria.append("idCategoria",respuesta["idCategoria"]);
+
+			$.ajax({
+				url: "ajax/categorias.ajax.php",
+				method: "POST",
+				data: datosCategoria,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType: "json",
+				success:function(respuesta){
+					$("#editarCategoria").val(respuesta["idCategoria"]);
+					$("#editarCategoria").html(respuesta["categoria"]);
+				}
+			});
+
+			$("#editarCodigo").val(respuesta["codigo"]);
+			$("#editarMarca").val(respuesta["marca"]);
+			$("#editarModelo").val(respuesta["modelo"]);
+			$("#editarNumSerie").val(respuesta["num_serie"]);
+			$("#editarValAdqui").val(respuesta["val_adq"]);
+
+		}
+	});
+});
